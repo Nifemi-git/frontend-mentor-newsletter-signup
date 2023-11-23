@@ -5,6 +5,7 @@ const emailInput = document.getElementById("mail");
 const errMessg = document.getElementById("err-messg");
 const subBtn = document.getElementById("subscribe");
 const dismissBtn = document.getElementById("dismiss");
+
 const regex = /^[a-z0-9]+@[a-z]+\.com$/;
 
 const validate = (e) => {
@@ -14,9 +15,7 @@ const validate = (e) => {
     signupWrapper.style.display = "none";
     successWrapper.style.display = "flex";
   } else {
-    emailInput.style.border = "1px solid red";
-    emailInput.style.backgroundColor = "rgba(255, 0, 0, 0.1)";
-    emailInput.style.color = "red";
+    emailInput.classList.add("error");
     errMessg.style.display = "block";
   }
   e.preventDefault();
@@ -25,7 +24,9 @@ const validate = (e) => {
 const dismiss = (e) => {
   successWrapper.style.display = "none";
   signupWrapper.style.display = "flex";
-  e.preventDefault();
+  emailInput.classList.remove("error");
+  emailInput.value = "";
+  errMessg.style.display = "none";
 };
 
 subBtn.addEventListener("click", validate);

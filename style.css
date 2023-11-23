@@ -62,6 +62,14 @@ button:hover:before {
   gap: 30px;
 }
 
+picture {
+  width: 100%;
+
+  & img {
+    width: 100%;
+  }
+}
+
 .signup_text {
   & h1 {
     margin-bottom: 30px;
@@ -125,14 +133,21 @@ button:hover:before {
     cursor: pointer;
     border: 1px inset black;
   }
+
+  .error {
+    border: 1px solid red;
+    color: red;
+    background-color: rgba(255, 0, 0, 0.1);
+  }
 }
 
 .success_container {
+  height: 100vh;
   background-color: white;
   display: none;
   flex-direction: column;
-  gap: 250px;
-  padding: 150px 20px 40px 20px;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .success_text {
@@ -181,14 +196,26 @@ button:hover:before {
     }
   }
 
+  & p {
+    font-size: 1rem;
+  }
+
   .success_container {
+    height: fit-content;
     width: 34%;
-    padding: 50px;
+    padding: 40px 50px;
     border-radius: 40px;
     gap: 30px;
   }
 
-  & p {
-    font-size: 1rem;
+  .success_text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+
+    & h1 {
+      font-size: 3rem;
+    }
   }
 }
